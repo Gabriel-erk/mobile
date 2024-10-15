@@ -38,14 +38,30 @@ class _HomePageState extends State<HomePage> {
     if (grupo.toLowerCase() == "nos") {
       if (_placarNos > 0) {
         setState(() {
-          _placarNos -= 1;
+          _placarNos--;
         });
       }
     } else if (grupo.toLowerCase() == "eles") {
       setState(() {
-        _placarEles -= 1;
+        _placarEles--;
       });
     }
+  }
+
+  void novoTorneio() {
+    // para atualizar em tempo real
+    setState(() {
+      _placarEles = 0;
+      _placarNos = 0;
+      _vitoriasNos = 0;
+      _vitoriasEles = 0;
+    });
+  }
+
+  void novaPartida(){
+    setState(() {
+      
+    });
   }
 
   @override
@@ -203,7 +219,7 @@ class _HomePageState extends State<HomePage> {
                       child: Center(
                         child: Text(
                           _placarEles.toString(),
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 60,
                             fontWeight: FontWeight.bold,
                             color: Color(0xffe22364),
@@ -296,12 +312,12 @@ class _HomePageState extends State<HomePage> {
               children: [
                 Text(
                   _vitoriasNos.toString(),
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
                       color: Color(0xffe22364)),
                 ),
-                Text(
+                const Text(
                   'Vitórias',
                   style: TextStyle(
                       fontSize: 30,
@@ -310,7 +326,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 Text(
                   _vitoriasEles.toString(),
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
                       color: Color(0xffe22364)),
@@ -326,7 +342,7 @@ class _HomePageState extends State<HomePage> {
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xff7d687d),
-                        shape: BeveledRectangleBorder(),
+                        shape: const BeveledRectangleBorder(),
                         minimumSize: const Size(130, 55),
                       ),
                       child: const Text(
@@ -335,13 +351,15 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                   ),
-                  SizedBox(width: 10), // Espaço entre os botões
+                  const SizedBox(width: 10), // Espaço entre os botões
                   Expanded(
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        novoTorneio();
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xff7d687d),
-                        shape: BeveledRectangleBorder(),
+                        shape: const BeveledRectangleBorder(),
                         minimumSize: const Size(130, 55),
                       ),
                       child: const Text(
