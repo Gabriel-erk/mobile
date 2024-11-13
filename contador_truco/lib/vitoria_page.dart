@@ -13,7 +13,7 @@ class VitoriaPage extends StatelessWidget {
         centerTitle: true,
         leading: GestureDetector(
             onTap: () {
-              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                 content: Text("Clicou no botão voltar"),
                 backgroundColor: Colors.red,
               ));
