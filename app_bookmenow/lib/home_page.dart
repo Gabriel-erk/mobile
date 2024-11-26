@@ -99,11 +99,37 @@ class _HomePageState extends State<HomePage> {
               children: [
                 // vai ter uma imagem da internet, pois o campo 'imagemUrl' do meu objeto servicos, contém um link da internet que manda para uma imagem
                 Image.network(
-                  servico['imagemUrl'],
+                  servico['imagem'],
                   width: 80,
                   height: 80,
-                  fit: BoxFit.cover, // vai ajustar a imagem ao centro do espaço em que ela está
+                  fit: BoxFit
+                      .cover, // vai ajustar a imagem ao centro do espaço em que ela está
                 ),
+                Expanded(
+                    child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        servico['titulo'],
+                        style: const TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.start,
+                      ),
+                      // limitando caracteres em 50
+                      // Text('${servico['descricao'].substring(0, 50)}....'),
+                      Text(
+                        servico['descricao'],
+                        // permite no maximo 2 linhas para o conteúdo deste text
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      // barra invertida para permitir o $ sem que considere váriavel
+                      Text('R\$ ${servico['preco'].toStringAsFixed(2)}')
+                    ],
+                  ),
+                ))
               ],
             ),
           );
