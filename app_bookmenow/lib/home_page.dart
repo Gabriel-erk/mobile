@@ -123,7 +123,7 @@ class _HomePageState extends State<HomePage> {
                   // criando uma linha, pois vou querer elementos um ao lado do outro, e ela faz isso (coluna deixa um abaixo do outro)
                   child: Row(
                     children: [
-                      // vai ter uma imagem da internet, pois o campo 'imagemUrl' do meu objeto servicos, contém um link da internet que manda para uma imagem
+                      // vai ter uma imagem da internet, pois o campo 'imagem' do meu objeto servicos, contém um link da internet que manda para uma imagem
                       Image.network(
                         // dentro da váriavel servico, campo fotos (que possui um array) entra na posição 0 do array(que está a minha foto, já que o serivico possui uma só) e entrando na chave imagem do do campo 0 do array
                         servico['fotos'][0]['imagem'],
@@ -144,6 +144,7 @@ class _HomePageState extends State<HomePage> {
                                   fontSize: 16, fontWeight: FontWeight.bold),
                               textAlign: TextAlign.start,
                             ),
+                            // parei aqui na criação do meu site
                             // limitando caracteres em 50
                             // Text('${servico['descricao'].substring(0, 50)}....'),
                             Text(
