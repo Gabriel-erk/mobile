@@ -1,21 +1,25 @@
 import 'package:flutter/material.dart';
 
 class DetalhesServicosPage extends StatelessWidget {
-  const DetalhesServicosPage({super.key});
+  // é um mapa pois recebe uma lista de serviços, uma lista de dados (array)
+  final Map<String, dynamic> servico;
+  // passando servico como uma váriavel essencial, vai jogar um erro se não tiver nenhum valor nessa váriavel
+  const DetalhesServicosPage({super.key, required this.servico});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Nome Serviço"),
+        title: Text(servico['titulo']),
         backgroundColor: Colors.white,
         centerTitle: true,
       ),
       backgroundColor: Colors.white,
       body: Column(
         children: [
-          Image.asset(
-            "assets/trabalhador.avif",
+          Image.network(
+            // chave fotos array 1 (primeira posição) na chave imagem
+            servico['fotos'][0]['imagem'],
             height: 200,
             width: double.infinity,
             fit: BoxFit.cover,
@@ -23,27 +27,29 @@ class DetalhesServicosPage extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
-          const Text(
-            "Titulo do Serviço",
+          Text(
+            servico['titulo'],
             style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ),
           const SizedBox(
             height: 10,
           ),
-          const Text("Descrição do Serviço"),
-          const Text(
-            "R\$ 20,00",
+          Text(
+            servico['descricao'],
+          ),
+          Text(
+            'R\$ ${double.parse(servico['valor']).toStringAsFixed(2)}',
             style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
                 color: Colors.orange),
           ),
           Divider(),
-          const Text("Endereço: Rua Maria da Silva"),
-          const Text("Bairro: Jardim Dos Palmares"),
-          const Text("CEP: 98313-9087"),
-          const Text("Telefone: 12345-8097"),
-          const Text("Celular: 12345-8097"),
+          Text('Endereço: ${servico['rua']}'),
+          Text("Bairro: ${servico['bairro']}"),
+          Text("CEP: ${servico['cep']}"),
+          Text("Telefone: ${servico['telefone']}"),
+          Text("Celular: ${servico['celular']}"),
           const SizedBox(
             height: 10,
           ),

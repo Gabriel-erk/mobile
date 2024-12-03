@@ -109,7 +109,8 @@ class _HomePageState extends State<HomePage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => DetalhesServicosPage(),
+                        // servico: servico - passando nossa váriavel servico para o parâmetro obrigátorio (servico) de "detalhes_servicos"
+                        builder: (context) => DetalhesServicosPage(servico: servico),
                       ),
                     );
                   },

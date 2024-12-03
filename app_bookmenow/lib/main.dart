@@ -1,5 +1,3 @@
-// import 'package:app_bookmenow/home_page.dart';
-import 'package:app_bookmenow/detalhes_servicos_page.dart';
 import 'package:app_bookmenow/home_page.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +10,7 @@ void main() {
         primaryColor: Colors.white,
       ),
       // home: const HomePage(),
-      home: DetalhesServicosPage(),
+      home: HomePage(),
     ),
   );
 }
